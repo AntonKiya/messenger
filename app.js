@@ -16,26 +16,69 @@ app.use(express.urlencoded({extended: true}));
 
 
 
-// принимаем с фронтенда сокет для подключения к серверу.
-// здесь же будем имитить все события
+
 io.on('connection', (socket) => {
 
     console.log('IO connected', socket.id);
 
-    // При входе в комнату генерируем emit (App.js - onlogin).
-    socket.on('ROOM:JOIN', (data ) => {
-        console.log(data);
+    socket.on('ROOM_JOIN', (data) => {
+
+        socket.join(data.roomId);
+
+        rooms.get(data.roomId).get('users').set(socket.id, data.userName);
+
+        const users = [...rooms.get(data.roomId).get('users').values()];
+
+        io.in(data.roomId).emit('SET_USERS', users);
+
     });
 
-});
 
+    // 2 Выход из комнаты.
+    socket.on('disconnect', () => {
+
+        rooms.forEach(async (item, roomId) => {
+
+            await item.get('users').delete(socket.id);
+
+            const users = [...rooms.get(roomId).get('users').values()];
+
+            io.in(roomId).emit('SET_USERS', users);
+
+        });
+
+    });
+
+
+    // 3 Добавление сообщения
+        socket.on('NEW_MESSAGE', ({roomId, userName, text}) => {
+
+            const message = {text: text, user: userName}
+
+            rooms.get(roomId).get('messages').push(message);
+
+            socket.in(roomId).emit('SET_MESSAGES', message);
+
+        });
+
+});
 
 
 const rooms = new Map();
 
 
-app.get('/rooms', (req, res) => {
-    res.json(rooms);
+app.get('/rooms/:id', (req, res) => {
+
+    const roomId = req.params.id;
+
+    const usersMess = {
+
+        users: [...rooms.get(roomId).get('users').values()],
+        messages: [...rooms.get(roomId).get('messages').values()],
+    }
+
+    res.json(usersMess);
+
 });
 
 
@@ -51,11 +94,8 @@ app.put('/rooms', (req, res) => {
         ]))
     }
 
-    console.log(rooms);
-
     res.json([...rooms.values()]);
 
-    // res.json({message: 'ok'});
 });
 
 

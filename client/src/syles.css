@@ -1,0 +1,28 @@
+body{
+    background-color: #c0d9ff;
+    padding: 30px;
+}
+
+.connection_form *{
+    margin: 0 auto;
+}
+
+.chat {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.messages {
+    padding: 10px;
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    min-height: 50%;
+    max-height: 50%;
+    border-radius: 2%;
+    overflow-y: scroll;
+}
+
+.message {
+    max-width: 65%;
+}

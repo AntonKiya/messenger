@@ -31,6 +31,7 @@
       <change afterPath="$PROJECT_DIR$/client/src/reducer.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client/src/reportWebVitals.js" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/client/src/socket.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/syles.css" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../node-postgresql/.idea/node-postgresql.iml" afterDir="false" />
@@ -41,6 +42,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -56,6 +64,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -69,6 +78,11 @@
       <option name="presentableId" value="Default" />
       <updated>1614372560304</updated>
       <workItem from="1614372562482" duration="1041000" />
+      <workItem from="1614374430934" duration="2000" />
+      <workItem from="1614417425278" duration="10412000" />
+      <workItem from="1614450529340" duration="8290000" />
+      <workItem from="1614503513350" duration="3932000" />
+      <workItem from="1614518057533" duration="3151000" />
     </task>
     <servers />
   </component>
@@ -85,6 +99,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import './syles.css';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(

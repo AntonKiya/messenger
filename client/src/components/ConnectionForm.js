@@ -1,7 +1,5 @@
 import React, {useState} from 'react';
 import axios from "axios";
-import socket from "../socket";
-
 
 export const ConnectionForm = ({onLogin}) => {
 
@@ -18,36 +16,35 @@ export const ConnectionForm = ({onLogin}) => {
 
         onLogin(form);
 
-
     }
 
 
     return(
-        <div>
+        <div className="connection_form">
             <div className="col-sm-6">
                 <h5 className="form-label">Room id</h5>
                 <input
                     type="text"
                     className="form-control"
                     name="roomId" id="roomId"
-                    placeholder="Room ID"
+                    placeholder="Название комнаты"
                     value={form.roomId}
                     onChange={(event) => setForm({...form, [event.target.name]:event.target.value})}
                 />
             </div>
             <div className="col-sm-6">
-                <h5 className="form-label">First name</h5>
+                <h5 className="form-label">Nickname</h5>
                 <input
                     type="text"
                     className="form-control"
                     name="userName"
-                    placeholder="Name"
+                    placeholder="Ваш никнейм"
                     id="userName"
                     value={form.userName}
                     onChange={(event) => setForm({...form, [event.target.name]:event.target.value})}
                 />
+                <button onClick={send} type="button" className="btn btn-success">Send</button>
             </div>
-            <button onClick={send} type="button" className="btn btn-success">Send</button>
         </div>
     );
 };
